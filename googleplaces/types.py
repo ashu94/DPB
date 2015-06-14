@@ -1,8 +1,3 @@
-"""
-Valid types to be optionally used in Google Place query api calls.
-
-@author: sam@slimkrazy.com
-"""
 
 TYPE_ACCOUNTING = 'accounting'
 TYPE_AIRPORT = 'airport'

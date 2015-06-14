@@ -32,14 +32,3 @@ def querry(mesage,peer,search,cursor,cnxn):
   cnxn.commit()
   return None
 
-"""def db_connect():
-    global cursor
-    global cnxn
-    dsn = 'sqlserverdatasource'
-    user = 'sa'
-    password = 'credance'
-    database = 'howzat'
- 
-    con_string = 'DSN=%s;UID=%s;PWD=%s;DATABASE=%s;' % (dsn, user, password, database)
-    cnxn = pyodbc.connect(con_string)
-    cursor = cnxn.cursor()"""

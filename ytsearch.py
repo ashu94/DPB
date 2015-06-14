@@ -16,7 +16,7 @@ from apiclient.discovery import build
 import timeit
 
 
-DEV_KEY = "AIzaSyDRQ4_A-5YXMFluXDZUofTnMcW27TFG03I"
+DEV_KEY = "" #developerKey
 API_NAME = "youtube"
 API_VERSION= "v3"
 videos = []

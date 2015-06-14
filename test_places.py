@@ -1,6 +1,6 @@
 from googleplaces import GooglePlaces, types, lang
 
-YOUR_API_KEY = 'AIzaSyDRQ4_A-5YXMFluXDZUofTnMcW27TFG03I'
+YOUR_API_KEY = ''  #API key
 
 google_places = GooglePlaces(YOUR_API_KEY)
 

@@ -1,8 +1,3 @@
-"""
-Valid languages to be used in Google Places API calls.
-
-@author: sam@slimkrazy.com
-"""
 
 ARABIC = 'ar'
 BASQUE = 'eu'

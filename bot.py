@@ -18,7 +18,6 @@ import __future__
 from module import *
 from test_places import *
 
-pathtotg='/home/ashu/tg/'    #include trailing slash. I don't know if '~' notation works
 lastmessage=None
 proc=None
 chattybot=True
@@ -168,10 +167,10 @@ def AI(peer,message,search):
 def db_connect():
     global cursor
     global cnxn
-    dsn = 'sqlserverdatasource'
-    user = 'sa'
-    password = 'credance'
-    database = 'howzat'
+    dsn = ''	#fill credential
+    user = ''
+    password = ''
+    database = ''
  
     con_string = 'DSN=%s;UID=%s;PWD=%s;DATABASE=%s;' % (dsn, user, password, database)
     cnxn = pyodbc.connect(con_string)
@@ -214,39 +213,12 @@ def msg(peer,message,search):
 		lastmessage=message
 
 def bot():
-
-	#COLOR_RED="\033[0;31m"
-	#COLOR_REDB="\033[1;31m"
-	#COLOR_NORMAL="\033[0m"
-	#COLOR_GREEN="\033[32;1m"
-	#COLOR_GREY="\033[37;1m"
-	#COLOR_YELLOW="\033[33;1m"
-	#COLOR_BLUE="\033[34;1m"
-	#COLOR_MAGENTA="\033[35;1m"
-	#COLOR_CYAN="\033[36;1m"
-	#COLOR_LCYAN="\033[0;36m"
-	#COLOR_INVERSE="\033[7m"
 	db_connect()
 	global pathtotg
 	global proc
 	global cursor
-	#proc=subprocess.Popen([pathtotg+'bin/telegram-cli','-k',pathtotg+'tg-server.pub'],stdin=subprocess.PIPE,stdout=subprocess.PIPE)
-	#proc="hey"
 	lastmessage=None
 	multiline=False
-	#for line in iter(proc.stdout.readline,''):
-		#if multiline:
-		#	message+=line
-		#	if line.endswith('[0m\n'):
-		#		message=message.rstrip('[0m\n')
-		#		multiline=False
-		#else:
-		#	if ((COLOR_YELLOW+" is now online" in line) or (COLOR_YELLOW+" is now offline" in line) or (COLOR_YELLOW+": 0 unread" in line)):
-		#		pass
-		#	print line.rstrip()
-		#	with open('output','a') as fil:
-		#		fil.write(line)
-		#	group=None
 	peer=None
 	message=None
 	try:
@@ -263,75 +235,16 @@ def bot():
 		    
 		except:
 		    msg(peer,"Can you please repeat",search)
-		#		if ((COLOR_BLUE+" >>>" in line) and (COLOR_BLUE+"[" in line)):
-					#if you get change colour level errors, uncomment the below line, and comment the line below that.
-					#peer=line.split(COLOR_REDB)[1].split(COLOR_RED)[0]
-		#peer="9891267410"
-		#message="who are you?"
-		
-					#peer=line.split(COLOR_RED)[1].split(COLOR_NORMAL)[0]
-					#message=line.split(COLOR_BLUE+" >>> ")[1].split("\033")[0]
-					#if not line.endswith("[0m\n"):
-					#	multiline=True
-				#if ((COLOR_GREEN+" >>>" in line)):
-				#	group=line.split(COLOR_MAGENTA)[2].split(COLOR_NORMAL)[0]
-					#For change colour level
-				#	peer=line.split(COLOR_REDB)[1].split(COLOR_RED)[0]
-					#peer=line.split(COLOR_RED)[1].split(COLOR_NORMAL)[0]
-				#	message=line.split(COLOR_GREEN+" >>> ")[1].strip(COLOR_NORMAL).split("\033")[0]
-				#	if not line.endswith("[0m\n"):
-				#		multiline=True
-				#if ((COLOR_BLUE+" >>>" in line) and (COLOR_MAGENTA+"[" in line)):
-				#	group=line.split(COLOR_MAGENTA)[2].split(COLOR_NORMAL)[0]
-					#for change colour level
-					#peer=line.split(COLOR_REDB)[1].split(COLOR_RED)[0]
-				#	peer=line.split(COLOR_RED)[1].split(COLOR_NORMAL)[0]
-				#	message=line.split(COLOR_BLUE+" >>> ")[1].strip(COLOR_NORMAL).split("\033")[0]
-				#	if not line.endswith("[0m\n"):
-				#		multiline=True
 	except IndexError:
 		print "Error: Change colour levels"
-	#if( (peer is not None) and (message is not None) ):
-	#AI(peer,message,search)
-	
-	
-#for twitter to work you need to 'sudo easy_install twitter'
-#after that, choose a recepient by changing groupeer below
-#def twitter():
-	#change the group/peer name here to choose where the tweets are sent to
-#	groupeer="Akshay S Dinesh"
-#	time.sleep(10)
-#	tweets=subprocess.Popen(['twitter','-r'],stdin=subprocess.PIPE,stdout=subprocess.PIPE)
-#	for tweet in iter(tweets.stdout.readline,''):
-#		try:
-#			author,tweet=tweet.split(' ',1)
-#		except ValueError:
-#			continue
-#		tweet=tweet.replace('\n','')
-#		follow=["TheHindu","premierleague","WHO","IPL"]
-#		if (author in follow):
-#			msg(groupeer,"@"+author,tweet)
-#		else:
-#			pass
-#		time.sleep(1)
-
-
-#this doesn't work for now
-def timeresponse():
-	while True:
-		if time.strftime("%H")=="00":
-			print "time is 12 o'clock"
 	
 	
 def main():
 	botthread = Thread(target = bot)
 	botthread.start()
 	
-	#twitbot = Thread(target=twitter)
-	#twitbot.start()
 	
 	botthread.join()
-	#twitbot.join()
-	
+
 if __name__ == "__main__":
     main()
