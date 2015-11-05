@@ -1,12 +1,12 @@
-(DPB)database-python-bot
+##(DPB)database-python-bot
 ========================
 
-This is a bot written in python. 
+####This is a bot written in python. 
 it uses different module to fetch different result
 
 It continuously check for any FLAG variable which is 0.
 which meant message is unread and hence process is.
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 
 KEYWORD used in these bot are:
 
