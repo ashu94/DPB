@@ -5,7 +5,7 @@
 it uses different module to fetch different result
 
 It continuously check for any FLAG variable which is 0.
-which meant message is unread and hence process is.
+which mean message is unread and hence process is.
 
 
 KEYWORD used in these bot are:
